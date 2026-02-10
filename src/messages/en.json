@@ -1,0 +1,105 @@
+{
+  "nav": {
+    "services": "Services",
+    "solutions": "Solutions",
+    "stack": "Stack",
+    "process": "Process",
+    "contact": "Contact",
+    "menu": "Menu"
+  },
+  "hero": {
+    "tag": "AI Engineering Team — Almaty",
+    "title1": "We build ",
+    "titleAccent": "AI systems",
+    "titleComma": "",
+    "titleBr": "that actually ",
+    "titleHighlight": "work",
+    "desc": "Chatbots, agent systems, local LLMs and MLOps pipelines — from prototype to production. We deploy on your GPUs, plan infrastructure, and scale.",
+    "cta": "Discuss a project",
+    "cases": "Our cases",
+    "badgeAgents": "8 AI agents",
+    "badgeAgentsSub": "in production",
+    "badgeGpu": "3× RTX 4090",
+    "badgeGpuSub": "local cluster"
+  },
+  "stats": {
+    "agents": "8+",
+    "agentsLabel": "AI agents in production",
+    "projects": "10+",
+    "projectsLabel": "LLM projects in production",
+    "languages": "3",
+    "languagesLabel": "supported languages (RU/KZ/EN)",
+    "support": "24/7",
+    "supportLabel": "monitoring & support"
+  },
+  "services": {
+    "tag": "What we do",
+    "title": "Full-cycle AI development",
+    "subtitle": "From idea to production-ready system with monitoring, autoscaling and support",
+    "chatbots": "Chatbots & AI Agents",
+    "chatbotsDesc": "Multi-agent systems with orchestration, RAG pipelines and connection to your databases. Telegram, Web, enterprise portals.",
+    "docs": "Document Processing",
+    "docsDesc": "Generation, validation, data extraction and semantic search across documents. AI-powered document workflow automation.",
+    "analytics": "Text-to-SQL & Analytics",
+    "analyticsDesc": "Natural language queries to databases. Dashboards, charts, maps and analytical reports with an AI assistant.",
+    "mlops": "MLOps & Infrastructure",
+    "mlopsDesc": "Model deployment, CI/CD pipelines, drift monitoring, GPU resource planning. Kubernetes, Docker, Airflow.",
+    "finetuning": "Fine-tuning & Adaptation",
+    "finetuningDesc": "Model fine-tuning on your data. LoRA, QLoRA, RLHF. We select the optimal base model and training strategy.",
+    "deploy": "Local LLM Deployment",
+    "deployDesc": "We deploy language models on your hardware. We calculate required GPUs, optimize inference, and ensure data privacy."
+  },
+  "solutions": {
+    "tag": "Industry solutions",
+    "title": "Real cases",
+    "subtitle": "AI systems running in production right now",
+    "oil": "Oil & Gas — HSE Compliance",
+    "oilDesc": "Electronic work permit system with multilingual LLM for document verification and risk assessment",
+    "oilList": ["Automated PTO documentation review", "LLM-based risk assessment", "Multilingual interface RU/KZ/EN", "Enterprise system integration"],
+    "city": "Urban Analytics",
+    "cityDesc": "Almaty city data analysis: geoanalytics, interactive maps, visualization and forecasting",
+    "cityList": ["PostGIS and GeoJSON visualization", "NL2SQL queries to city data", "Interactive dashboards and maps", "ETL pipelines on Airflow + DBT"],
+    "chat": "Enterprise Chat Systems",
+    "chatDesc": "RAG chatbots with access to corporate knowledge bases, documentation, and SQL databases",
+    "chatList": ["Semantic document search", "Report and answer generation", "Telegram and web interfaces", "Autonomous task agents"]
+  },
+  "stack": {
+    "tag": "Technologies",
+    "title": "Our stack",
+    "subtitle": "Proven tools for every layer of your AI system",
+    "llm": "LLM & AI",
+    "llmDesc": "Local models, fine-tuning, RAG pipelines",
+    "llmTech": "Python · PyTorch · vLLM · LangChain · HuggingFace",
+    "data": "Data & Analytics",
+    "dataDesc": "Databases, search, visualization",
+    "dataTech": "PostgreSQL · pgvector · PostGIS · Redis · Metabase",
+    "infra": "Infrastructure",
+    "infraDesc": "Deployment, monitoring, scaling",
+    "infraTech": "Docker · Kubernetes · Airflow · Prometheus · Grafana",
+    "integrations": "Integrations",
+    "integrationsDesc": "Telegram, web, enterprise systems",
+    "integrationsTech": "FastAPI · Telegram Bot API · GitLab CI/CD · Proxmox"
+  },
+  "process": {
+    "tag": "How we work",
+    "title": "From idea to production",
+    "step1": "Audit & Planning",
+    "step1Desc": "We analyze the task, calculate GPU needs, design architecture and estimate the budget",
+    "step2": "Prototype",
+    "step2Desc": "Quick MVP in 2-4 weeks with real data and feedback",
+    "step3": "Production",
+    "step3Desc": "Deployment with CI/CD, monitoring, logging and autoscaling",
+    "step4": "Support",
+    "step4Desc": "24/7 monitoring, model updates, optimization and scaling"
+  },
+  "cta": {
+    "title1": "Ready to bring ",
+    "titleAccent": "AI",
+    "title2": " to your business?",
+    "desc": "Tell us about your task — we'll evaluate the architecture, calculate resources and propose the optimal solution",
+    "button": "Write to us"
+  },
+  "footer": {
+    "tagline": "AI Engineering · Almaty, Kazakhstan"
+  }
+}
