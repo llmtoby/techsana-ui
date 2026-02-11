@@ -7,19 +7,31 @@ import Stack from "@/components/Stack";
 import Process from "@/components/Process";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import ParticleField from "@/components/ParticleField";
+import OceanDepth from "@/components/OceanDepth";
+import OceanLife from "@/components/OceanLife";
 
 export default function Home() {
   return (
-    <>
-      <Nav />
-      <Hero />
-      <Stats />
-      <Services />
-      <Solutions />
-      <Stack />
-      <Process />
-      <CTA />
-      <Footer />
-    </>
+    <div className="relative min-h-screen">
+      {/* Ocean depth gradient */}
+      <OceanDepth />
+      {/* Marine life illustrations */}
+      <OceanLife />
+      {/* Bubbles */}
+      <ParticleField className="fixed inset-0 z-1" />
+      {/* Page content */}
+      <div className="relative z-2">
+        <Nav />
+        <Hero />
+        <Stats />
+        <Services />
+        <Solutions />
+        <Stack />
+        <Process />
+        <CTA />
+        <Footer />
+      </div>
+    </div>
   );
 }

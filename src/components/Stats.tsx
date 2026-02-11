@@ -12,17 +12,17 @@ export default function Stats() {
 
   return (
     <div className="px-6 md:px-12 -mt-10 relative z-10">
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 bg-white rounded-[20px] border border-lime/20 shadow-[0_20px_60px_rgba(12,26,10,0.06)] overflow-hidden">
+      <div className="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 glass-panel rounded-[20px] overflow-hidden">
         {items.map((item, i) => (
           <div
             key={i}
-            className={`py-9 px-8 text-center transition-colors hover:bg-lime/5 ${
+            className={`py-9 px-8 text-center transition-colors hover:bg-cyan/5 ${
               i < items.length - 1
-                ? "border-b sm:border-b-0 sm:border-r border-lime/15 last:border-none"
+                ? "border-b sm:border-b-0 sm:border-r border-cyan/10 last:border-none"
                 : ""
             } max-sm:border-r-0 max-sm:border-b max-sm:last:border-b-0 max-lg:[&:nth-child(2)]:border-r-0`}
           >
-            <div className="font-heading font-extrabold text-4xl text-green-deep mb-1.5">
+            <div className="font-heading font-extrabold text-4xl text-cyan mb-1.5">
               {item.value}
             </div>
             <div className="text-[13px] text-text-muted tracking-wide">

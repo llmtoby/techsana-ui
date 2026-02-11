@@ -1,18 +1,20 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-lime: #BAEF23;
-  --color-lime-dark: #9DD41A;
-  --color-green: #1A7A3A;
-  --color-green-deep: #0F4D25;
-  --color-yellow: #F5E642;
-  --color-yellow-soft: #FFF9C4;
-  --color-white: #FAFFF5;
-  --color-off-white: #F2F7E8;
-  --color-dark: #0C1A0A;
-  --color-text: #1C2E18;
-  --color-text-muted: #5A7054;
-  --font-sans: var(--font-dm-sans);
+  --color-deep: #061A2B;
+  --color-abyss: #0A2E4A;
+  --color-cyan: #3FD0FF;
+  --color-cyan-dark: #2AB8E6;
+  --color-ice: #DFF6FF;
+  --color-ice-soft: #B0EAFF;
+  --color-white: #FFFFFF;
+  --color-surface: #0D2236;
+  --color-text: #DFF6FF;
+  --color-text-muted: #7EB8D4;
+  --color-glass: rgba(6, 26, 43, 0.6);
+  --color-glass-border: rgba(63, 208, 255, 0.15);
+  --color-glow: rgba(63, 208, 255, 0.4);
+  --font-sans: var(--font-inter);
   --font-heading: var(--font-syne);
 }
 
@@ -24,19 +26,68 @@ body {
   overflow-x: hidden;
 }
 
-/* Noise texture overlay */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 9999;
+/* Ocean depth gradient is now rendered by OceanDepth component */
+
+/* Glass utilities */
+.glass-panel {
+  background: rgba(6, 26, 43, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(63, 208, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes pulse-dot {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.4); opacity: 0.7; }
+.glass-card {
+  background: rgba(6, 26, 43, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(63, 208, 255, 0.1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(63, 208, 255, 0.25);
+  box-shadow: 0 8px 40px rgba(63, 208, 255, 0.1);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes biopulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(4px, -6px); }
+  50% { transform: translate(-3px, -10px); }
+  75% { transform: translate(-6px, -4px); }
+}
+
+@keyframes sonar {
+  0% { transform: scale(0); opacity: 0.6; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+@keyframes lightray {
+  0%, 100% { opacity: 0.03; }
+  50% { opacity: 0.08; }
+}
+
+@keyframes linedraw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes particleFloat {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
 }
 
 @keyframes typeLine {
@@ -49,7 +100,9 @@ body::before {
   50% { transform: translateY(-8px); }
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
