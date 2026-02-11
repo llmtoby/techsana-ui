@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { getLocale } from "next-intl/server";
 import { Inter, Syne } from "next/font/google";
 import "./globals.css";
 
@@ -15,15 +14,13 @@ const syne = Syne({
   display: "swap",
 });
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: ReactNode;
 }) {
-  const locale = await getLocale();
-
   return (
-    <html lang={locale} className={`${inter.variable} ${syne.variable}`}>
+    <html lang="ru" className={`${inter.variable} ${syne.variable}`}>
       <head>
         <link
           rel="icon"
