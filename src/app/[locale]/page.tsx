@@ -1,3 +1,4 @@
+import { setRequestLocale } from "next-intl/server";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
@@ -11,7 +12,9 @@ import ParticleField from "@/components/ParticleField";
 import OceanDepth from "@/components/OceanDepth";
 import OceanLife from "@/components/OceanLife";
 
-export default function Home() {
+export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <div className="relative min-h-screen">
       {/* Ocean depth gradient */}

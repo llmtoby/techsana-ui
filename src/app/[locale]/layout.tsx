@@ -6,19 +6,19 @@ import { routing } from "@/i18n/routing";
 
 const meta: Record<string, { title: string; description: string }> = {
   ru: {
-    title: "Techsana — AI Engineering Lab",
+    title: "Terentech — AI Engineering Lab",
     description:
-      "Techsana — AI-инжиниринг в Алматы. Чатботы, агентные системы, локальные LLM, MLOps-пайплайны.",
+      "Terentech — AI-инжиниринг в Алматы. Чатботы, агентные системы, локальные LLM, MLOps-пайплайны.",
   },
   kz: {
-    title: "Techsana — AI Engineering Lab",
+    title: "Terentech — AI Engineering Lab",
     description:
-      "Techsana — Алматыдағы AI-инжиниринг. Чатботтар, агенттік жүйелер, жергілікті LLM, MLOps-пайплайндар.",
+      "Terentech — Алматыдағы AI-инжиниринг. Чатботтар, агенттік жүйелер, жергілікті LLM, MLOps-пайплайндар.",
   },
   en: {
-    title: "Techsana — AI Engineering Lab",
+    title: "Terentech — AI Engineering Lab",
     description:
-      "Techsana — AI engineering in Almaty. Chatbots, agent systems, local LLMs, MLOps pipelines.",
+      "Terentech — AI engineering in Almaty. Chatbots, agent systems, local LLMs, MLOps pipelines.",
   },
 };
 

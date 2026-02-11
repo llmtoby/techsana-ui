@@ -14,8 +14,8 @@
   --color-glass: rgba(6, 26, 43, 0.6);
   --color-glass-border: rgba(63, 208, 255, 0.15);
   --color-glow: rgba(63, 208, 255, 0.4);
-  --font-sans: var(--font-inter);
-  --font-heading: var(--font-syne);
+  --font-sans: var(--font-montserrat);
+  --font-heading: var(--font-montserrat);
 }
 
 html {
@@ -74,8 +74,8 @@ body {
 }
 
 @keyframes lightray {
-  0%, 100% { opacity: 0.03; }
-  50% { opacity: 0.08; }
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
 }
 
 @keyframes linedraw {

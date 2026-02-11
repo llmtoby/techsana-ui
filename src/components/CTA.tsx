@@ -28,7 +28,9 @@ export default function CTA() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="mailto:hello@techsana.kz"
+            href="https://wa.me/77777880880?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D0%B2%D0%B0%D1%88%D0%B8%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8."
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 bg-cyan text-deep px-10 py-4.5 rounded-full font-bold text-[15px] hover:shadow-[0_12px_32px_rgba(63,208,255,0.3)] hover:-translate-y-0.5 transition-all no-underline"
           >
             {t("button")} ↗

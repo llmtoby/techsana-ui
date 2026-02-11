@@ -27,7 +27,7 @@ export default function Nav() {
         className="font-heading font-extrabold text-2xl text-white no-underline flex items-center gap-2.5"
       >
         <span className="w-2.5 h-2.5 bg-cyan rounded-full animate-[biopulse_3s_ease-in-out_infinite] shadow-[0_0_12px_rgba(63,208,255,0.6)]" />
-        Techsana
+        Terentech
       </a>
 
       {/* Desktop links */}

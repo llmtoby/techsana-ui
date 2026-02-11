@@ -1,16 +1,10 @@
 import type { ReactNode } from "react";
-import { Inter, Syne } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const montserrat = Montserrat({
   subsets: ["latin", "latin-ext", "cyrillic"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const syne = Syne({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-syne",
+  variable: "--font-montserrat",
   display: "swap",
 });
 
@@ -20,7 +14,7 @@ export default function RootLayout({
   children: ReactNode;
 }) {
   return (
-    <html lang="ru" className={`${inter.variable} ${syne.variable}`}>
+    <html lang="ru" className={montserrat.variable}>
       <head>
         <link
           rel="icon"

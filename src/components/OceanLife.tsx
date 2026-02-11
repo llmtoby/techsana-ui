@@ -39,6 +39,210 @@ function Ship({ style }: { style?: React.CSSProperties }) {
   );
 }
 
+function TitanicWreck({ style }: { style?: React.CSSProperties }) {
+  return (
+    <svg viewBox="0 0 700 280" fill="none" stroke="#3FD0FF" strokeWidth="1.2" style={style}>
+      {/* ============================================= */}
+      {/* BOW SECTION — relatively intact, nose tilted into seabed */}
+      {/* ============================================= */}
+      <g transform="rotate(6, 140, 180)">
+        {/* Main hull — elegant Titanic bow shape */}
+        <path
+          d="M6 130 C6 125 8 118 14 112 L28 100 C40 92 55 86 75 82 L240 74 L240 170 L20 158 C12 154 8 148 6 140 Z"
+          fill="#3FD0FF" fillOpacity="0.04" strokeOpacity="0.4"
+        />
+        {/* Keel line */}
+        <path d="M6 135 L240 122" strokeOpacity="0.12" />
+        {/* Sharp bow stem — iconic Titanic feature */}
+        <path d="M6 130 L2 110 C4 100 10 90 20 82" strokeOpacity="0.5" strokeWidth="1.5" />
+        {/* Bow flare curves */}
+        <path d="M14 112 C18 106 26 98 40 92" strokeOpacity="0.3" />
+        <path d="M10 142 C14 150 22 156 35 158" strokeOpacity="0.25" />
+
+        {/* Forecastle deck */}
+        <path d="M28 94 L130 82 L130 78 L32 90 Z" fill="#3FD0FF" fillOpacity="0.03" strokeOpacity="0.25" />
+        {/* Forecastle railing — damaged */}
+        <line x1="32" y1="90" x2="90" y2="84" strokeOpacity="0.2" strokeDasharray="3 4" />
+        {[38, 50, 62, 74, 86].map((x) => (
+          <line key={x} x1={x} y1={91 - (x-32)*0.1} x2={x} y2={88 - (x-32)*0.1} strokeOpacity="0.12" />
+        ))}
+
+        {/* Well deck dip */}
+        <path d="M130 82 L130 86 L155 84 L155 80" strokeOpacity="0.2" />
+
+        {/* Bridge / Officers quarters */}
+        <path d="M155 78 L155 62 C157 58 160 56 165 55 L215 52 C220 52 222 54 222 58 L222 72 L155 78" fill="#3FD0FF" fillOpacity="0.03" strokeOpacity="0.3" />
+        {/* Bridge windows */}
+        {[165, 175, 185, 195, 205, 215].map((x) => (
+          <rect key={x} x={x} y="58" width="4" height="5" rx="0.5" strokeOpacity="0.2" fill="#3FD0FF" fillOpacity="0.04" />
+        ))}
+        {/* Wheelhouse on top */}
+        <path d="M175 52 L175 46 L205 44 L205 52" strokeOpacity="0.2" fill="#3FD0FF" fillOpacity="0.02" />
+
+        {/* Forward mast — bent/broken */}
+        <line x1="135" y1="78" x2="132" y2="30" strokeOpacity="0.25" />
+        <line x1="132" y1="30" x2="128" y2="18" strokeOpacity="0.12" strokeDasharray="2 3" />
+        {/* Crow's nest */}
+        <rect x="130" y="38" width="5" height="4" rx="0.5" strokeOpacity="0.15" />
+        {/* Rigging remnants */}
+        <path d="M132 30 L155 62" strokeOpacity="0.06" strokeDasharray="2 4" />
+        <path d="M132 30 L110 82" strokeOpacity="0.06" strokeDasharray="2 4" />
+
+        {/* Boat deck — davits (lifeboat cranes) still visible */}
+        {[160, 172, 184, 196, 208].map((x) => (
+          <path key={x} d={`M${x} 72 C${x-1} 68 ${x+3} 66 ${x+4} 70`} strokeOpacity="0.12" />
+        ))}
+
+        {/* 4 rows of portholes along hull */}
+        {[60, 80, 100, 120, 140, 160, 180, 200, 220].map((x) => (
+          <g key={x}>
+            <circle cx={x} cy={108 - (x-60)*0.02} r="1.8" strokeOpacity="0.18" fill="#3FD0FF" fillOpacity="0.03" />
+            <circle cx={x} cy={130 - (x-60)*0.02} r="1.8" strokeOpacity="0.14" fill="#3FD0FF" fillOpacity="0.02" />
+          </g>
+        ))}
+
+        {/* Deck promenade windows */}
+        {[160, 168, 176, 184, 192, 200, 208, 216].map((x) => (
+          <rect key={`w${x}`} x={x} y="88" width="3.5" height="4" rx="0.5" strokeOpacity="0.12" />
+        ))}
+
+        {/* Anchor and hawse pipe */}
+        <circle cx="22" cy="120" r="3" strokeOpacity="0.2" />
+        <path d="M22 123 L22 130 M18 128 C18 134 26 134 26 128" strokeOpacity="0.15" />
+        <path d="M22 134 L22 155" strokeOpacity="0.1" strokeDasharray="1.5 2" />
+
+        {/* Jagged break edge */}
+        <path d="M238 72 L242 68 L240 64 L244 60 L238 58" strokeOpacity="0.3" strokeWidth="0.8" />
+        <path d="M240 170 L244 174 L240 178 L245 180 L238 184" strokeOpacity="0.25" strokeWidth="0.8" />
+        <path d="M239 90 L244 88 L241 82" strokeOpacity="0.15" />
+        <path d="M239 150 L243 154 L240 160" strokeOpacity="0.15" />
+      </g>
+
+      {/* ============================================= */}
+      {/* STERN SECTION — more damaged/collapsed, tilted opposite way */}
+      {/* ============================================= */}
+      <g transform="rotate(-4, 470, 160)">
+        {/* Main hull */}
+        <path
+          d="M290 78 L290 175 L630 182 C642 180 652 172 658 160 L658 130 C656 116 648 106 636 100 L430 82 Z"
+          fill="#3FD0FF" fillOpacity="0.035" strokeOpacity="0.35"
+        />
+        {/* Keel */}
+        <path d="M290 126 L650 145" strokeOpacity="0.1" />
+
+        {/* Stern — elegant rounded Titanic counter stern */}
+        <path d="M636 100 C648 106 656 116 658 130 C658 145 655 158 648 168 C642 176 636 180 630 182" strokeOpacity="0.4" strokeWidth="1.4" />
+        {/* Stern gallery windows */}
+        <path d="M640 115 C648 120 650 135 648 150" strokeOpacity="0.2" />
+        {[122, 130, 138, 146].map((y) => (
+          <rect key={y} x="642" y={y} width="4" height="3" rx="0.5" strokeOpacity="0.12" />
+        ))}
+
+        {/* Superstructure — partially collapsed */}
+        {/* A-deck housing */}
+        <path d="M310 76 L310 58 L540 50 L540 72 Z" fill="#3FD0FF" fillOpacity="0.025" strokeOpacity="0.2" />
+        {/* B-deck — more damaged, sagging lines */}
+        <path d="M340 56 L340 42 L500 36 L510 38 L510 50" strokeOpacity="0.18" fill="#3FD0FF" fillOpacity="0.02" />
+
+        {/* Four iconic funnels — the Titanic signature */}
+        {/* Funnel 1 — missing (fell during sinking) just show base */}
+        <rect x="330" y="38" width="18" height="4" rx="1" strokeOpacity="0.1" fill="#3FD0FF" fillOpacity="0.02" />
+
+        {/* Funnel 2 — broken, leaning */}
+        <g transform="rotate(15, 380, 38)">
+          <path d="M372 38 L372 12 C374 8 378 6 382 6 L388 6 C392 6 396 8 398 12 L398 38" strokeOpacity="0.2" fill="#3FD0FF" fillOpacity="0.025" />
+          {/* Funnel band */}
+          <line x1="372" y1="22" x2="398" y2="22" strokeOpacity="0.12" />
+          <line x1="372" y1="18" x2="398" y2="18" strokeOpacity="0.12" />
+          {/* Smoke rim */}
+          <ellipse cx="385" cy="6" rx="14" ry="3" strokeOpacity="0.15" />
+        </g>
+
+        {/* Funnel 3 — more intact but tilted */}
+        <g transform="rotate(8, 435, 36)">
+          <path d="M427 36 L427 8 C429 4 433 2 437 2 L443 2 C447 2 451 4 453 8 L453 36" strokeOpacity="0.22" fill="#3FD0FF" fillOpacity="0.03" />
+          <line x1="427" y1="18" x2="453" y2="18" strokeOpacity="0.12" />
+          <line x1="427" y1="14" x2="453" y2="14" strokeOpacity="0.12" />
+          <ellipse cx="440" cy="2" rx="14" ry="3" strokeOpacity="0.15" />
+          {/* Guy wires — snapped */}
+          <path d="M437 8 L410 50" strokeOpacity="0.06" strokeDasharray="3 4" />
+          <path d="M443 8 L465 50" strokeOpacity="0.06" strokeDasharray="3 4" />
+        </g>
+
+        {/* Funnel 4 — dummy funnel, mostly gone */}
+        <path d="M488 36 L490 28 L502 28 L504 36" strokeOpacity="0.1" strokeDasharray="2 3" />
+
+        {/* Aft mast — broken off */}
+        <line x1="560" y1="72" x2="558" y2="40" strokeOpacity="0.18" />
+        <path d="M558 40 L554 30" strokeOpacity="0.08" strokeDasharray="2 3" />
+
+        {/* Boat deck davits */}
+        {[320, 340, 360, 380, 400, 420, 440, 460, 480, 500, 520].map((x) => (
+          <path key={x} d={`M${x} 72 C${x-1} 68 ${x+2} 66 ${x+3} 70`} strokeOpacity="0.08" />
+        ))}
+
+        {/* Promenade deck windows — many broken */}
+        {[310, 320, 330, 345, 360, 375, 390, 410, 430, 450, 470, 490, 510, 530].map((x, i) => (
+          <rect key={`pw${x}`} x={x} y="84" width="4" height="5" rx="0.5" strokeOpacity={i % 3 === 0 ? 0.06 : 0.12} strokeDasharray={i % 3 === 0 ? "1 2" : "none"} />
+        ))}
+
+        {/* Hull portholes */}
+        {[310, 335, 360, 385, 410, 435, 460, 485, 510, 535, 560, 585, 610].map((x) => (
+          <g key={`p${x}`}>
+            <circle cx={x} cy="115" r="1.8" strokeOpacity="0.15" fill="#3FD0FF" fillOpacity="0.02" />
+            <circle cx={x} cy="140" r="1.8" strokeOpacity="0.12" fill="#3FD0FF" fillOpacity="0.02" />
+          </g>
+        ))}
+
+        {/* Propellers — partially visible */}
+        <g transform="translate(650, 155)">
+          {/* Port propeller */}
+          <circle cx="0" cy="0" r="3" strokeOpacity="0.2" fill="#3FD0FF" fillOpacity="0.04" />
+          <path d="M0 -14 C8 -8 8 8 0 14" strokeOpacity="0.18" />
+          <path d="M0 -14 C-8 -8 -8 8 0 14" strokeOpacity="0.18" />
+          <path d="M-12 -6 C-6 -10 6 -10 12 -6" strokeOpacity="0.15" />
+          <path d="M-12 6 C-6 10 6 10 12 6" strokeOpacity="0.15" />
+        </g>
+        {/* Rudder */}
+        <path d="M656 135 L665 128 L665 168 L656 175" strokeOpacity="0.15" fill="#3FD0FF" fillOpacity="0.02" />
+
+        {/* Jagged break edge at bow-side */}
+        <path d="M292 78 L288 74 L292 68 L286 64 L292 60" strokeOpacity="0.25" strokeWidth="0.8" />
+        <path d="M290 170 L286 174 L290 180 L284 184" strokeOpacity="0.2" strokeWidth="0.8" />
+      </g>
+
+      {/* ============================================= */}
+      {/* DEBRIS FIELD — between the two halves */}
+      {/* ============================================= */}
+      {/* Fallen funnel #1 lying on seabed */}
+      <g transform="rotate(85, 265, 220)">
+        <path d="M250 220 L250 195 C252 191 256 189 260 189 L266 189 C270 189 274 191 276 195 L276 220" strokeOpacity="0.1" fill="#3FD0FF" fillOpacity="0.02" />
+      </g>
+      {/* Hull plates scattered */}
+      <path d="M255 230 L268 228 L270 234 L256 236 Z" strokeOpacity="0.06" fill="#3FD0FF" fillOpacity="0.01" transform="rotate(20, 262, 232)" />
+      <path d="M275 235 L285 232 L287 237 L276 239 Z" strokeOpacity="0.05" fill="#3FD0FF" fillOpacity="0.01" transform="rotate(-12, 280, 235)" />
+      <path d="M248 238 L258 240 L256 244 L247 242 Z" strokeOpacity="0.05" transform="rotate(35, 252, 241)" />
+      {/* Coal scattered */}
+      {[252, 260, 268, 273, 280, 258, 264, 276].map((x, i) => (
+        <circle key={`c${i}`} cx={x} cy={240 + (i % 3) * 3} r={0.8 + (i % 2) * 0.4} strokeOpacity="0.04" fill="#3FD0FF" fillOpacity="0.02" />
+      ))}
+      {/* Broken railing piece */}
+      <path d="M245 226 L252 224 L254 228" strokeOpacity="0.06" />
+      {/* Rivet lines on debris */}
+      <path d="M260 232 L266 231" strokeOpacity="0.04" strokeDasharray="0.8 1.5" />
+
+      {/* ============================================= */}
+      {/* SEABED */}
+      {/* ============================================= */}
+      <path d="M0 250 Q40 245 80 250 Q120 255 160 248 Q200 242 240 250 Q280 258 320 250 Q360 243 400 250 Q440 257 480 250 Q520 244 560 250 Q600 256 640 250 Q670 245 700 248" strokeOpacity="0.08" />
+      <path d="M0 260 Q70 256 140 260 Q210 264 280 260 Q350 256 420 260 Q490 264 560 260 Q630 256 700 260" strokeOpacity="0.05" />
+      {/* Rust stains on seabed */}
+      <ellipse cx="160" cy="252" rx="30" ry="4" fill="#3FD0FF" fillOpacity="0.015" strokeOpacity="0" />
+      <ellipse cx="460" cy="255" rx="40" ry="5" fill="#3FD0FF" fillOpacity="0.012" strokeOpacity="0" />
+    </svg>
+  );
+}
+
 function Submarine({ style }: { style?: React.CSSProperties }) {
   return (
     <svg viewBox="0 0 220 70" fill="none" stroke="#3FD0FF" strokeWidth="1.2" style={style}>
@@ -314,7 +518,7 @@ export default function OceanLife() {
 
       {/* DEEP ABYSS — CTA */}
       <Anglerfish style={{ position: "absolute", top: 3800, right: "8%", width: 280, opacity: 0.12 }} />
-      <Ship style={{ position: "absolute", top: 4000, left: "35%", width: 300, opacity: 0.07, transform: "rotate(18deg)" }} />
+      <TitanicWreck style={{ position: "absolute", top: 3850, left: "5%", width: 800, opacity: 0.12 }} />
 
       {/* BOTTOM — footer */}
       <Submarine style={{ position: "absolute", top: 4250, right: "3%", width: 400, opacity: 0.07, transform: "scaleX(-1)" }} />

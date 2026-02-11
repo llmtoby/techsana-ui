@@ -18,82 +18,84 @@ export default function OceanDepth() {
         style={{
           background: `linear-gradient(
             180deg,
-            #0F5C8A 0%,
-            #0C4A6E 3%,
-            #0A3D5E 7%,
-            #093550 12%,
-            #082D48 18%,
-            #072640 25%,
-            #061F35 33%,
-            #061A2B 42%,
-            #051624 55%,
-            #041220 68%,
-            #030E1A 80%,
-            #030B15 90%,
+            #0B4D4A 0%,
+            #0B4F50 2%,
+            #0C4E5A 5%,
+            #0C4C64 8%,
+            #0C4A6E 12%,
+            #0A3D5E 18%,
+            #093550 24%,
+            #082D48 30%,
+            #072640 38%,
+            #061F35 46%,
+            #061A2B 55%,
+            #051624 65%,
+            #041220 75%,
+            #030E1A 85%,
+            #030B15 93%,
             #020911 100%
           )`,
         }}
       />
 
-      {/* Water surface — bright caustic shimmer at top */}
+      {/* Water surface — teal caustic shimmer at top */}
       <div
-        className="absolute top-0 left-0 w-full h-[600px]"
+        className="absolute top-0 left-0 w-full h-[700px]"
         style={{
           background: `
-            radial-gradient(ellipse 50% 30% at 40% 0%, rgba(63, 208, 255, 0.15), transparent),
-            radial-gradient(ellipse 35% 25% at 70% 2%, rgba(100, 220, 255, 0.12), transparent),
-            radial-gradient(ellipse 25% 20% at 20% 5%, rgba(63, 208, 255, 0.08), transparent),
+            radial-gradient(ellipse 50% 30% at 40% 0%, rgba(63, 208, 220, 0.15), transparent),
+            radial-gradient(ellipse 35% 25% at 70% 2%, rgba(63, 208, 255, 0.12), transparent),
+            radial-gradient(ellipse 25% 20% at 20% 5%, rgba(63, 200, 230, 0.08), transparent),
             radial-gradient(ellipse 60% 15% at 50% 0%, rgba(176, 234, 255, 0.06), transparent)
           `,
         }}
       />
 
-      {/* Light rays — cone shapes from surface penetrating downward */}
-      <div className="absolute top-0 left-0 w-full h-[900px] overflow-hidden">
-        <div
-          className="absolute -top-[5%] left-[30%] w-[250px] h-[110%] origin-top rotate-[4deg]"
-          style={{
-            background: "linear-gradient(180deg, rgba(63,208,255,0.1) 0%, rgba(63,208,255,0.03) 30%, rgba(63,208,255,0.005) 55%, transparent 70%)",
-            animation: "lightray 8s ease-in-out infinite",
-          }}
-        />
-        <div
-          className="absolute -top-[3%] left-[12%] w-[140px] h-[95%] origin-top rotate-[14deg]"
-          style={{
-            background: "linear-gradient(180deg, rgba(63,208,255,0.07) 0%, rgba(63,208,255,0.02) 35%, transparent 60%)",
-            animation: "lightray 10s ease-in-out infinite 2s",
-          }}
-        />
-        <div
-          className="absolute -top-[8%] left-[52%] w-[180px] h-[105%] origin-top -rotate-[6deg]"
-          style={{
-            background: "linear-gradient(180deg, rgba(100,220,255,0.08) 0%, rgba(63,208,255,0.02) 30%, transparent 55%)",
-            animation: "lightray 12s ease-in-out infinite 4s",
-          }}
-        />
-        <div
-          className="absolute -top-[2%] left-[72%] w-[100px] h-[85%] origin-top rotate-[20deg]"
-          style={{
-            background: "linear-gradient(180deg, rgba(63,208,255,0.05) 0%, rgba(63,208,255,0.01) 35%, transparent 50%)",
-            animation: "lightray 9s ease-in-out infinite 1s",
-          }}
-        />
-        <div
-          className="absolute -top-[4%] left-[3%] w-[110px] h-[80%] origin-top rotate-[25deg]"
-          style={{
-            background: "linear-gradient(180deg, rgba(63,208,255,0.04) 0%, transparent 45%)",
-            animation: "lightray 11s ease-in-out infinite 3s",
-          }}
-        />
-        {/* Wide ambient ray */}
-        <div
-          className="absolute -top-[5%] left-[40%] w-[400px] h-[100%] origin-top rotate-[2deg]"
-          style={{
-            background: "linear-gradient(180deg, rgba(63,208,255,0.03) 0%, transparent 40%)",
-            animation: "lightray 15s ease-in-out infinite 5s",
-          }}
-        />
-      </div>
+      {/* Sun light rays — SVG triangular beams with sharp edges */}
+      <svg
+        className="absolute top-0 left-0 w-full h-[1200px] pointer-events-none"
+        viewBox="0 0 1400 1200"
+        fill="none"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient id="ray-bright" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#B0EAFF" stopOpacity="0.22" />
+            <stop offset="15%" stopColor="#3FD0FF" stopOpacity="0.1" />
+            <stop offset="45%" stopColor="#3FD0FF" stopOpacity="0.03" />
+            <stop offset="75%" stopColor="#3FD0FF" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient id="ray-medium" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#B0EAFF" stopOpacity="0.15" />
+            <stop offset="18%" stopColor="#3FD0FF" stopOpacity="0.07" />
+            <stop offset="50%" stopColor="#3FD0FF" stopOpacity="0.02" />
+            <stop offset="80%" stopColor="#3FD0FF" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient id="ray-dim" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#B0EAFF" stopOpacity="0.1" />
+            <stop offset="20%" stopColor="#3FD0FF" stopOpacity="0.04" />
+            <stop offset="55%" stopColor="#3FD0FF" stopOpacity="0.01" />
+            <stop offset="75%" stopColor="#3FD0FF" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        {/* Ray 1 — bright, center-left */}
+        <polygon points="380,-20 420,-20 520,1100 440,1100" fill="url(#ray-bright)" />
+        {/* Ray 2 — bright, center */}
+        <polygon points="580,-20 610,-20 640,1050 570,1050" fill="url(#ray-bright)" />
+        {/* Ray 3 — medium, right */}
+        <polygon points="800,-20 830,-20 780,1000 740,1000" fill="url(#ray-medium)" />
+        {/* Ray 4 — dim, far left */}
+        <polygon points="140,-20 162,-20 280,950 240,950" fill="url(#ray-dim)" />
+        {/* Ray 5 — medium, center-right */}
+        <polygon points="950,-20 975,-20 880,900 850,900" fill="url(#ray-dim)" />
+        {/* Ray 6 — dim, between 1 and 2 */}
+        <polygon points="490,-20 505,-20 530,850 510,850" fill="url(#ray-dim)" />
+        {/* Ray 7 — thin, far right */}
+        <polygon points="1100,-20 1118,-20 1020,800 1000,800" fill="url(#ray-dim)" />
+        {/* Ray 8 — medium-bright */}
+        <polygon points="680,-20 708,-20 720,1000 680,1000" fill="url(#ray-medium)" />
+      </svg>
 
       {/* Water surface ripple line — subtle horizontal highlight */}
       <div
