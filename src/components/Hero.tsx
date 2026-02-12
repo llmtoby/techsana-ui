@@ -18,7 +18,7 @@ export default function Hero() {
             <span className="whitespace-nowrap">{t("title1")}<span className="text-cyan">{t("titleAccent")}</span>{t("titleComma")}</span>
             {t("title2") && <><br />{t("title2")}</>}
             <br />
-            <span className="whitespace-nowrap">{t("titleBr")}<span className="bg-gradient-to-br from-cyan to-ice bg-clip-text text-transparent">{t("titleHighlight")}</span></span>
+            <span className="whitespace-nowrap"><span className="text-cyan">{t("titleAccent2")}</span>{t("titleBr")}<span className="bg-gradient-to-br from-cyan to-ice bg-clip-text text-transparent">{t("titleHighlight")}</span></span>
           </h1>
           <p className="text-lg text-text-muted leading-relaxed max-w-[540px] mb-10 animate-[fadeUp_0.8s_ease_0.2s_both]">
             {t("desc")}

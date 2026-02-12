@@ -13,6 +13,7 @@
     "titleAccent": "think",
     "titleComma": "",
     "title2": "",
+    "titleAccent2": "",
     "titleBr": "with ",
     "titleHighlight": "AI",
     "desc": "Chatbots, agent systems, local LLMs and MLOps pipelines — from prototype to production. We deploy on your GPUs, plan infrastructure, and scale.",
