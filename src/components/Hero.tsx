@@ -14,15 +14,11 @@ export default function Hero() {
           <div className="inline-flex items-center gap-2 bg-cyan/10 border border-cyan/20 px-4 py-2 rounded-full text-[13px] font-semibold text-cyan tracking-wider uppercase mb-7 animate-[fadeUp_0.8s_ease_both] before:content-[''] before:w-1.5 before:h-1.5 before:bg-cyan-dark before:rounded-full">
             {t("tag")}
           </div>
-          <h1 className="font-heading font-extrabold text-[clamp(42px,5.5vw,72px)] leading-[1.05] text-white mb-6 animate-[fadeUp_0.8s_ease_0.1s_both]">
-            {t("title1")}
-            <span className="text-cyan">{t("titleAccent")}</span>
-            {t("titleComma")}
+          <h1 className="font-heading font-extrabold text-[clamp(42px,5.5vw,72px)] leading-[1.05] text-white mb-6 uppercase animate-[fadeUp_0.8s_ease_0.1s_both]">
+            <span className="whitespace-nowrap">{t("title1")}<span className="text-cyan">{t("titleAccent")}</span>{t("titleComma")}</span>
+            {t("title2") && <><br />{t("title2")}</>}
             <br />
-            {t("titleBr")}
-            <span className="bg-gradient-to-br from-cyan to-ice bg-clip-text text-transparent">
-              {t("titleHighlight")}
-            </span>
+            <span className="whitespace-nowrap">{t("titleBr")}<span className="bg-gradient-to-br from-cyan to-ice bg-clip-text text-transparent">{t("titleHighlight")}</span></span>
           </h1>
           <p className="text-lg text-text-muted leading-relaxed max-w-[540px] mb-10 animate-[fadeUp_0.8s_ease_0.2s_both]">
             {t("desc")}

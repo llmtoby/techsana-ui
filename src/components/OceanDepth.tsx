@@ -51,7 +51,7 @@ export default function OceanDepth() {
         }}
       />
 
-      {/* Sun light rays — SVG triangular beams with sharp edges */}
+      {/* Sun light rays — soft blurred beams */}
       <svg
         className="absolute top-0 left-0 w-full h-[1200px] pointer-events-none"
         viewBox="0 0 1400 1200"
@@ -60,41 +60,43 @@ export default function OceanDepth() {
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
+          <filter id="ray-blur">
+            <feGaussianBlur stdDeviation="18 0" />
+          </filter>
+          <filter id="ray-blur-wide">
+            <feGaussianBlur stdDeviation="30 0" />
+          </filter>
           <linearGradient id="ray-bright" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#B0EAFF" stopOpacity="0.22" />
-            <stop offset="15%" stopColor="#3FD0FF" stopOpacity="0.1" />
-            <stop offset="45%" stopColor="#3FD0FF" stopOpacity="0.03" />
-            <stop offset="75%" stopColor="#3FD0FF" stopOpacity="0" />
+            <stop offset="0%" stopColor="#B0EAFF" stopOpacity="0.18" />
+            <stop offset="12%" stopColor="#3FD0FF" stopOpacity="0.08" />
+            <stop offset="40%" stopColor="#3FD0FF" stopOpacity="0.025" />
+            <stop offset="70%" stopColor="#3FD0FF" stopOpacity="0" />
           </linearGradient>
           <linearGradient id="ray-medium" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#B0EAFF" stopOpacity="0.15" />
-            <stop offset="18%" stopColor="#3FD0FF" stopOpacity="0.07" />
-            <stop offset="50%" stopColor="#3FD0FF" stopOpacity="0.02" />
-            <stop offset="80%" stopColor="#3FD0FF" stopOpacity="0" />
+            <stop offset="0%" stopColor="#B0EAFF" stopOpacity="0.12" />
+            <stop offset="15%" stopColor="#3FD0FF" stopOpacity="0.05" />
+            <stop offset="45%" stopColor="#3FD0FF" stopOpacity="0.015" />
+            <stop offset="70%" stopColor="#3FD0FF" stopOpacity="0" />
           </linearGradient>
           <linearGradient id="ray-dim" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#B0EAFF" stopOpacity="0.1" />
-            <stop offset="20%" stopColor="#3FD0FF" stopOpacity="0.04" />
-            <stop offset="55%" stopColor="#3FD0FF" stopOpacity="0.01" />
-            <stop offset="75%" stopColor="#3FD0FF" stopOpacity="0" />
+            <stop offset="0%" stopColor="#B0EAFF" stopOpacity="0.07" />
+            <stop offset="18%" stopColor="#3FD0FF" stopOpacity="0.03" />
+            <stop offset="50%" stopColor="#3FD0FF" stopOpacity="0.008" />
+            <stop offset="70%" stopColor="#3FD0FF" stopOpacity="0" />
           </linearGradient>
         </defs>
-        {/* Ray 1 — bright, center-left */}
-        <polygon points="380,-20 420,-20 520,1100 440,1100" fill="url(#ray-bright)" />
-        {/* Ray 2 — bright, center */}
-        <polygon points="580,-20 610,-20 640,1050 570,1050" fill="url(#ray-bright)" />
-        {/* Ray 3 — medium, right */}
-        <polygon points="800,-20 830,-20 780,1000 740,1000" fill="url(#ray-medium)" />
-        {/* Ray 4 — dim, far left */}
-        <polygon points="140,-20 162,-20 280,950 240,950" fill="url(#ray-dim)" />
-        {/* Ray 5 — medium, center-right */}
-        <polygon points="950,-20 975,-20 880,900 850,900" fill="url(#ray-dim)" />
-        {/* Ray 6 — dim, between 1 and 2 */}
-        <polygon points="490,-20 505,-20 530,850 510,850" fill="url(#ray-dim)" />
-        {/* Ray 7 — thin, far right */}
-        <polygon points="1100,-20 1118,-20 1020,800 1000,800" fill="url(#ray-dim)" />
-        {/* Ray 8 — medium-bright */}
-        <polygon points="680,-20 708,-20 720,1000 680,1000" fill="url(#ray-medium)" />
+        <g filter="url(#ray-blur-wide)">
+          <polygon points="380,-20 420,-20 520,1100 440,1100" fill="url(#ray-bright)" />
+          <polygon points="580,-20 610,-20 640,1050 570,1050" fill="url(#ray-bright)" />
+          <polygon points="680,-20 708,-20 720,1000 680,1000" fill="url(#ray-medium)" />
+        </g>
+        <g filter="url(#ray-blur)">
+          <polygon points="800,-20 830,-20 780,1000 740,1000" fill="url(#ray-medium)" />
+          <polygon points="140,-20 162,-20 280,950 240,950" fill="url(#ray-dim)" />
+          <polygon points="950,-20 975,-20 880,900 850,900" fill="url(#ray-dim)" />
+          <polygon points="490,-20 505,-20 530,850 510,850" fill="url(#ray-dim)" />
+          <polygon points="1100,-20 1118,-20 1020,800 1000,800" fill="url(#ray-dim)" />
+        </g>
       </svg>
 
       {/* Water surface ripple line — subtle horizontal highlight */}

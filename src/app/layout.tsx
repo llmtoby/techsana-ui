@@ -1,10 +1,16 @@
 import type { ReactNode } from "react";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Oswald } from "next/font/google";
 import "./globals.css";
 
 const montserrat = Montserrat({
   subsets: ["latin", "latin-ext", "cyrillic"],
   variable: "--font-montserrat",
+  display: "swap",
+});
+
+const oswald = Oswald({
+  subsets: ["latin", "latin-ext", "cyrillic"],
+  variable: "--font-oswald",
   display: "swap",
 });
 
@@ -14,7 +20,7 @@ export default function RootLayout({
   children: ReactNode;
 }) {
   return (
-    <html lang="ru" className={montserrat.variable}>
+    <html lang="ru" className={`${montserrat.variable} ${oswald.variable}`}>
       <head>
         <link
           rel="icon"

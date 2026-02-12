@@ -1,4 +1,21 @@
+"use client";
+
 /* Ocean life — decorative SVG creatures at different depths. */
+
+/* Helper: merges drift animation into the existing style */
+function drift(
+  base: React.CSSProperties,
+  range: number,
+  duration: number,
+  direction: "right" | "left" = "right"
+): React.CSSProperties {
+  const name = `drift-${direction}-${range}`;
+  return {
+    ...base,
+    animation: `${name} ${duration}s ease-in-out infinite alternate`,
+    ["--drift-name" as string]: name,
+  };
+}
 
 function Ship({ style }: { style?: React.CSSProperties }) {
   return (
@@ -494,34 +511,55 @@ export default function OceanLife() {
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 1 }} aria-hidden="true">
 
-      {/* SURFACE — hero */}
-      <Ship style={{ position: "absolute", top: 60, left: "5%", width: 400, opacity: 0.15 }} />
-      <FishSchool style={{ position: "absolute", top: 600, right: "8%", width: 280, opacity: 0.14 }} />
+      <style>{`
+        @keyframes swim-r-60  { 0% { transform: translateX(-30px); } 100% { transform: translateX(30px); } }
+        @keyframes swim-l-120 { 0% { transform: translateX(60px); }  100% { transform: translateX(-60px); } }
+        @keyframes swim-r-150 { 0% { transform: translateX(-75px) rotate(-4deg); } 100% { transform: translateX(75px) rotate(-4deg); } }
+        @keyframes swim-l-40  { 0% { transform: translateX(20px); }  100% { transform: translateX(-20px); } }
+        @keyframes swim-r-100 { 0% { transform: translateX(-50px); } 100% { transform: translateX(50px); } }
+        @keyframes swim-r-80  { 0% { transform: translateX(-40px) rotate(6deg); } 100% { transform: translateX(40px) rotate(6deg); } }
+        @keyframes swim-l-130 { 0% { transform: translateX(65px); }  100% { transform: translateX(-65px); } }
+        @keyframes swim-r-70  { 0% { transform: translateX(-35px) rotate(2deg); } 100% { transform: translateX(35px) rotate(2deg); } }
+        @keyframes swim-l-30  { 0% { transform: translateX(15px); }  100% { transform: translateX(-15px); } }
+        @keyframes swim-r-90  { 0% { transform: translateX(-45px); } 100% { transform: translateX(45px); } }
+        @keyframes swim-l-100 { 0% { transform: translateX(50px) rotate(-4deg); }  100% { transform: translateX(-50px) rotate(-4deg); } }
+        @keyframes swim-r-110 { 0% { transform: translateX(-55px); } 100% { transform: translateX(55px); } }
+        @keyframes swim-l-60  { 0% { transform: translateX(30px); }  100% { transform: translateX(-30px); } }
+        @keyframes swim-l-50  { 0% { transform: translateX(25px) scaleX(-1); }  100% { transform: translateX(-25px) scaleX(-1); } }
+        @keyframes titanic-sink {
+          0%   { top: -200px; opacity: 0; transform: rotate(12deg); }
+          5%   { opacity: 0.12; }
+          100% { top: 3850px; opacity: 0.12; transform: rotate(4deg); }
+        }
+      `}</style>
+
+      {/* SURFACE — Titanic sinking from top to bottom */}
+      <TitanicWreck style={{ position: "absolute", left: "5%", width: 800, opacity: 0, animation: "titanic-sink 120s linear infinite" }} />
+      <FishSchool style={{ position: "absolute", top: 600, right: "8%", width: 280, opacity: 0.14, animation: "swim-l-120 12s ease-in-out infinite alternate" }} />
 
       {/* SHALLOW — stats/services */}
-      <Dolphin style={{ position: "absolute", top: 1000, right: "5%", width: 380, opacity: 0.13, transform: "rotate(-4deg)" }} />
-      <Jellyfish style={{ position: "absolute", top: 1350, left: "6%", width: 120, opacity: 0.12 }} />
-      <FishSchool style={{ position: "absolute", top: 1600, left: "55%", width: 240, opacity: 0.1 }} />
+      <Dolphin style={{ position: "absolute", top: 1000, right: "5%", width: 380, opacity: 0.13, animation: "swim-r-150 18s ease-in-out infinite alternate" }} />
+      <Jellyfish style={{ position: "absolute", top: 1350, left: "6%", width: 120, opacity: 0.12, animation: "swim-l-40 14s ease-in-out infinite alternate" }} />
+      <FishSchool style={{ position: "absolute", top: 1600, left: "55%", width: 240, opacity: 0.1, animation: "swim-r-100 10s ease-in-out infinite alternate" }} />
 
       {/* MID — services/solutions */}
-      <SeaTurtle style={{ position: "absolute", top: 1900, right: "4%", width: 320, opacity: 0.12, transform: "rotate(6deg)" }} />
-      <BigFish style={{ position: "absolute", top: 2200, left: "3%", width: 280, opacity: 0.12 }} />
+      <SeaTurtle style={{ position: "absolute", top: 1900, right: "4%", width: 320, opacity: 0.12, animation: "swim-r-80 22s ease-in-out infinite alternate" }} />
+      <BigFish style={{ position: "absolute", top: 2200, left: "3%", width: 280, opacity: 0.12, animation: "swim-l-130 16s ease-in-out infinite alternate" }} />
 
       {/* DEEP — solutions/stack */}
-      <Submarine style={{ position: "absolute", top: 2700, left: "3%", width: 500, opacity: 0.1, transform: "rotate(2deg)" }} />
-      <Jellyfish style={{ position: "absolute", top: 2950, right: "5%", width: 100, opacity: 0.1 }} />
-      <FishSchool style={{ position: "absolute", top: 3050, right: "20%", width: 200, opacity: 0.08 }} />
+      <Submarine style={{ position: "absolute", top: 2700, left: "3%", width: 500, opacity: 0.1, animation: "swim-r-70 25s ease-in-out infinite alternate" }} />
+      <Jellyfish style={{ position: "absolute", top: 2950, right: "5%", width: 100, opacity: 0.1, animation: "swim-l-30 12s ease-in-out infinite alternate" }} />
+      <FishSchool style={{ position: "absolute", top: 3050, right: "20%", width: 200, opacity: 0.08, animation: "swim-r-90 9s ease-in-out infinite alternate" }} />
 
       {/* ABYSS — process */}
-      <Stingray style={{ position: "absolute", top: 3300, right: "8%", width: 300, opacity: 0.1, transform: "rotate(-4deg)" }} />
-      <BigFish style={{ position: "absolute", top: 3550, left: "20%", width: 220, opacity: 0.08 }} flip />
+      <Stingray style={{ position: "absolute", top: 3300, right: "8%", width: 300, opacity: 0.1, animation: "swim-l-100 20s ease-in-out infinite alternate" }} />
+      <BigFish style={{ position: "absolute", top: 3550, left: "20%", width: 220, opacity: 0.08, animation: "swim-r-110 14s ease-in-out infinite alternate" }} flip />
 
       {/* DEEP ABYSS — CTA */}
-      <Anglerfish style={{ position: "absolute", top: 3800, right: "8%", width: 280, opacity: 0.12 }} />
-      <TitanicWreck style={{ position: "absolute", top: 3850, left: "5%", width: 800, opacity: 0.12 }} />
+      <Anglerfish style={{ position: "absolute", top: 3800, right: "8%", width: 280, opacity: 0.12, animation: "swim-l-60 18s ease-in-out infinite alternate" }} />
 
       {/* BOTTOM — footer */}
-      <Submarine style={{ position: "absolute", top: 4250, right: "3%", width: 400, opacity: 0.07, transform: "scaleX(-1)" }} />
+      <Submarine style={{ position: "absolute", top: 4250, right: "3%", width: 400, opacity: 0.07, animation: "swim-l-50 22s ease-in-out infinite alternate" }} />
       <Anchor style={{ position: "absolute", top: 4350, left: "18%", width: 100, opacity: 0.09 }} />
     </div>
   );

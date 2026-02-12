@@ -22,7 +22,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       {/* Marine life illustrations */}
       <OceanLife />
       {/* Bubbles */}
-      <ParticleField className="fixed inset-0 z-1" />
+      <ParticleField className="absolute inset-0 z-1 h-full" />
       {/* Page content */}
       <div className="relative z-2">
         <Nav />
